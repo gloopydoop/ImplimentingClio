@@ -1,0 +1,132 @@
+c-----------------------------------------------------------------------
+      subroutine uservp (ix,iy,iz,ieg)
+      include 'SIZE'
+      include 'TOTAL'
+      include 'NEKUSE'
+
+      call IBM_properties(UTRANS,UDIFF,ix,iy,iz,ieg)
+
+      endif
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine userf  (ix,iy,iz,ieg)
+      include 'SIZE'
+      include 'TOTAL'
+      include 'NEKUSE'
+
+      ffx = 0.0
+      ffy = 0.0
+      ffz = 0.0
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine userq  (ix,iy,iz,ieg)
+      include 'SIZE'
+      include 'TOTAL'
+      include 'NEKUSE'
+
+	if(ym1(ix,iy,iz,ieg).gt.1.or.ym1(ix,iy,iz,ieg).lt.0) then
+		qvol = 1.0
+	else
+		qvol = 0.0
+	endif
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine userchk
+      include 'SIZE'
+      include 'TOTAL'
+
+
+      if (ISTEP.eq.NSTEPS.or.LASTEP.eq.1) then
+	! print our my parameters to compare with old version
+	write(*,"(L1,L2)") IFFLOW
+	write(*,"(L1,L2)") IFHEAT
+	write(*,"(L1,L2)") IFTRAN
+	write(*,"(L1,L2)") IFADV
+	write(*,"(L1,L2)") IFMSH
+	write(*,"(L1,L2)") IFAXIS
+	write(*,"(L1,L2)") IFSTRS
+	write(*,"(L1,L2)") IFLOMACH
+	write(*,"(L1,L2)") IFMGRID
+	write(*,"(L1,L2)") IFMVBD
+	write(*,"(L1,L2)") IFCHAR
+	write(*,"(L1,L2)") IFSYNC
+	write(*,"(L1,L2)") IFUSERVP
+	do i = 1, 118
+		write(6,1) i, param(i)
+	enddo
+      endif
+
+      nv = nx1*ny1*nz1*nelv
+      nt = nx1*ny1*nz1*nelt
+
+      if (mod(istep,10).eq.0) then
+         tmax = glmax(t ,nt)
+         umax = glmax(vx,nt)
+         if (nid.eq.0) write(6,1) istep,time,umax,tmax
+   1     format(i9,1p3e12.5,' tmax')
+      endif
+
+      if (mod(ISTEP,999).eq.0) then
+         call outpost2(VX,VY,VZ,PR,T,0,'   ')
+      endif
+
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine userbc (ix,iy,iz,iside,ieg)
+c     NOTE ::: This subroutine MAY NOT be called by every process
+
+C     Set boundary conditions
+
+      include 'SIZE'
+      include 'TOTAL'
+      include 'NEKUSE'
+
+      ux   = 4.0*y*(1. - y)
+      uy   = 0.0
+      uz   = 0.0
+
+      temp = 0.0
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine useric (ix,iy,iz,ieg)
+
+C     Set initial conditions
+
+      include 'SIZE'
+      include 'TOTAL'
+      include 'NEKUSE'
+
+      ux   = 4.0*y*(1. - y)
+      uy   = 0.0
+      uz   = 0.0
+      temp = 0.0
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine usrdat
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine usrdat2
+      include 'SIZE'
+      include 'TOTAL'
+c     param(66) = 4
+c     param(67) = 4
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine usrdat3
+      return
+      end
+c-----------------------------------------------------------------------

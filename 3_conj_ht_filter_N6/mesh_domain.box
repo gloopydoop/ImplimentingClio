@@ -1,0 +1,11 @@
+-2                         (spatial dimension)
+2                         (number of fields)
+#
+#   This is a comment
+#
+Box fluid
+-8  -8                     (nelx,nely,nelz for Box 1)
+0.0   8.0   1.0
+-0.5 1.5 1.0
+v  ,O  ,W  ,W             velocity bc's: Xleft Xright Ybottom Ytop)
+t  ,O  ,I  ,I             temperature BCs

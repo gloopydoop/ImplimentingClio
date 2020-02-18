@@ -1,0 +1,12 @@
+conj_ht.rea
+2                         (spatial dimension)
+2                         (number of fields)
+#
+#   This is a comment
+#
+Box upper wall
+-8  2
+0.0   8.0   1.0
+1.0   1.1   1.5
+W  ,W  ,W  ,W             no velocity bc's
+I  ,I  ,E  ,I             temperature BCs

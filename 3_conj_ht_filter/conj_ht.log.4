@@ -1,0 +1,1148 @@
+/----------------------------------------------------------\\
+|      _   __ ______ __ __  ______  ____   ____   ____     |
+|     / | / // ____// //_/ / ____/ / __ \\/ __ \\/ __ \\   |
+|    /  |/ // __/  / ,<   /___ \\ / / / // / / // / / /    |
+|   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
+|  /_/ |_//_____//_/ |_|/_____/  \\___/ \\___/ \\___/      |
+|                                                          |
+|----------------------------------------------------------|
+|                                                          |
+| NEK5000:  Open Source Spectral Element Solver            |
+| COPYRIGHT (c) 2008-2017 UCHICAGO ARGONNE, LLC            |
+| Version:  v17.0                                          |
+| Web:      http://nek5000.mcs.anl.gov                     |
+|                                                          |
+\\----------------------------------------------------------/
+                                                              
+
+ Number of processors:           4
+ REAL    wdsize      :           8
+ INTEGER wdsize      :           4
+ Timer accuracy      : 8.23E-07
+  
+ Reading /scratch/nobis/Nek5000/run/ImplimentingCLio/3_conj_ht_filter/conj_ht.par                                                            
+general = [(null)]
+general:stopat = [numSteps]
+general:numsteps = [9]
+general:dt = [5.000000E-02]
+general:timestepper = [bdf2]
+general:variabledt = [no]
+general:targetcfl = [0.5]
+general:writecontrol = [timeStep]
+general:writeinterval = [2000]
+general:dealiasing = [yes]
+general:filtering = [explicit]
+general:filterweight = [0.100000E-01]
+general:filtercutoffratio = [0.84]
+general:userparam01 = [5]
+problemtype = [(null)]
+problemtype:equation = [incompNS]
+problemtype:variableproperties = [yes]
+mesh = [(null)]
+mesh:writetofieldfile = [yes]
+pressure = [(null)]
+pressure:preconditioner = [semg_xxt]
+pressure:residualtol = [1.000000E-06]
+pressure:residualproj = [no]
+pressure:writetofieldfile = [yes]
+velocity = [(null)]
+velocity:residualtol = [1.000000E-08]
+velocity:residualproj = [no]
+velocity:density = [1.0]
+velocity:viscosity = [0.5]
+velocity:advection = [yes]
+velocity:writetofieldfile = [yes]
+temperature = [(null)]
+temperature:conjugateheattransfer = [yes]
+temperature:rhocp = [1]
+temperature:conductivity = [0.5]
+_runpar = [(null)]
+_runpar:parfwrite = [no]
+_runpar:parfname = [outparfile]
+_monitor = [(null)]
+_monitor:loglevel = [4]
+_monitor:walltime = [02:05]
+_chkpoint = [(null)]
+_chkpoint:readchkpt = [no]
+_chkpoint:chkpfnumber = [2]
+_chkpoint:chkpinterval = [25]
+_levelset = [(null)]
+_levelset:ampmsk = [7250.000000000000]
+_levelset:opt_xmax = [-0.250000000000000]
+_levelset:opt_ymax = [0.250000000000000]
+_levelset:opt_ymin = [-0.250000000000000]
+_levelset:filter_r = [0.1]
+_levelset:p_111 = [0.5]
+_levelset:p_112 = [1]
+_levelset:p_113 = [0.000000000000000]
+_levelset:p_121 = [0.5]
+_levelset:p_122 = [1]
+_levelset:p_123 = [0.000000000000000]
+_levelset:p_211 = [0.5]
+_levelset:p_212 = [1]
+_levelset:p_213 = [0.000000000000000]
+_levelset:p_221 = [0.05]
+_levelset:p_222 = [1]
+_levelset:p_223 = [0.000000000000000]
+_levelset:kernel = [1]
+_levelset:qf_ramp = [88]
+_levelset:qa_ramp = [8]
+_levelset:qc_ramp = [8]
+_levelset:fltr_type = [2]
+_levelset:fltr_beta = [0.01]
+_levelset:p_simp = [5]
+_levelset:map_rho = [2]
+ Reading /scratch/nobis/Nek5000/run/ImplimentingCLio/3_conj_ht_filter/conj_ht.re2                                                            
+ Switch on stress formulation to support PN/PN and IFUSERVP=T
+ mapping elements to processors
+ Reading /scratch/nobis/Nek5000/run/ImplimentingCLio/3_conj_ht_filter/conj_ht.ma2                                                            
+           1          16          16          64          64  NELV
+           2          16          16          64          64  NELV
+           3          16          16          64          64  NELV
+           0          16          16          64          64  NELV
+ RANK     0 IEG      37      38      39      40      45      46      47      48
+                     53      54      55      56      61      62      63      64
+  
+ element load imbalance:            0          16          16
+ done :: mapping   0.83177E-03 sec
+
+  
+  preading mesh 
+  preading bc for ifld           1
+  preading bc for ifld           2
+ done :: read .re2 file   0.11E-01 sec
+
+ nelgt/nelgv/lelt:          64          64         104
+ lx1  /lx2  /lx3 :           4           4           4
+ setup mesh topology
+   Right-handed check complete for      64 elements. OK.
+   setvert2d:   4         369         625         369         369
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 49 unique labels shared
+   pairwise times (avg, min, max): 5.19706e-06 5.11929e-06 5.31441e-06
+   crystal router                : 6.33602e-06 6.29099e-06 6.37565e-06
+   all reduce                    : 7.01235e-06 6.96918e-06 7.04778e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 2708 2708 2708
+   buffer bytes (avg, min, max): 432 432 432
+   setupds time 2.1797E-03 seconds   0  4         369          64
+           4  max multiplicity
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ NOTE: All elements deformed , param(59) ^=0
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+ regenerate geometry data           1
+ NOTE: All elements deformed , param(59) ^=0
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+   0.0000000000000000        8.0000000000000000       Xrange
+ -0.50000000000000000        1.5000000000000000       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+ IFTRAN   = T
+ IFFLOW   = T
+ IFHEAT   = T
+ IFSPLIT  = T
+ IFLOMACH = F
+ IFUSERVP = T
+ IFUSERMV = F
+ IFPERT   = F
+ IFADJ    = F
+ IFSTRS   = T
+ IFCHAR   = F
+ IFCYCLIC = F
+ IFAXIS   = F
+ IFMVBD   = F
+ IFMELT   = F
+ IFNEKNEK = F
+ IFSYNC   = F
+   
+ IFVCOR   = F
+ IFINTQ   = F
+ IFGEOM   = F
+ IFSURT   = F
+ IFWCNO   = F
+   
+ IFTMSH for field           1    =  F
+ IFADVC for field           1    =  T
+ IFNONL for field           1    =  F
+   
+ IFTMSH for field           2    =  T
+ IFADVC for field           2    =  T
+ IFNONL for field           2    =  F
+   
+ Dealiasing enabled, lxd=           7
+  
+ Estimated eigenvalues
+ EIGAA =    1.3108068345196804     
+ EIGGA =    2371.8547948397741     
+ EIGAE =   0.15421256876702122     
+ EIGAS =    1.4705882352941176E-002
+ EIGGE =    2371.8547948397741     
+ EIGGS =    2.0000000000000000     
+  
+ verify mesh topology
+   0.0000000000000000        8.0000000000000000       Xrange
+ -0.50000000000000000        1.5000000000000000       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+  E-solver strategy:  0 itr
+ mg_nx:           1           3
+ mg_ny:           1           3
+ mg_nz:           0           0
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 17 unique labels shared
+   pairwise times (avg, min, max): 4.30353e-06 4.26229e-06 4.32301e-06
+   crystal router                : 4.90753e-06 4.88553e-06 4.91757e-06
+   all reduce                    : 4.92507e-06 4.89112e-06 4.96367e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 1172 1172 1172
+   buffer bytes (avg, min, max): 176 176 176
+   setupds time 1.1121E-03 seconds   1  2          81          64
+   setvert2d:   4         369         625         369         369
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 49 unique labels shared
+   pairwise times (avg, min, max): 3.84923e-06 3.77651e-06 3.89721e-06
+   crystal router                : 4.77205e-06 4.74714e-06 4.81391e-06
+   all reduce                    : 6.01525e-06 5.97965e-06 6.04037e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 2708 2708 2708
+   buffer bytes (avg, min, max): 432 432 432
+   setupds time 1.7519E-03 seconds   2  4         369          64
+ regenerate geometry data           1
+ NOTE: All elements deformed , param(59) ^=0
+ done :: regenerate geometry data           1
+  
+ h1_mg_nx:           1           3
+ h1_mg_ny:           1           3
+ h1_mg_nz:           0           0
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 17 unique labels shared
+   pairwise times (avg, min, max): 3.64007e-06 3.59444e-06 3.68543e-06
+   crystal router                : 4.01442e-06 3.95868e-06 4.07202e-06
+   all reduce                    : 4.49717e-06 4.41205e-06 4.54392e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 1172 1172 1172
+   buffer bytes (avg, min, max): 176 176 176
+   setupds time 9.2493E-04 seconds   3  2          81          64
+   setvert2d:   4         369         625         369         369
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 49 unique labels shared
+   pairwise times (avg, min, max): 8.61923e-06 8.53725e-06 8.68989e-06
+   crystal router                : 5.90391e-06 5.87646e-06 5.93439e-06
+   all reduce                    : 9.49558e-06 9.44203e-06 9.55621e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 5020 5020 5020
+   buffer bytes (avg, min, max): 992 992 992
+   setupds time 1.8595E-03 seconds   4  4         369          64
+   setvert2d:   4         369         625         369         369
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 49 unique labels shared
+   pairwise times (avg, min, max): 7.1886e-06 7.13961e-06 7.2469e-06
+   crystal router                : 5.79078e-06 5.74524e-06 5.82328e-06
+   all reduce                    : 9.65388e-06 9.55472e-06 9.73437e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 5020 5020 5020
+   buffer bytes (avg, min, max): 992 992 992
+   setupds time 1.7846E-03 seconds   5  4         369          64
+   setvert2d:   6         657        1681         657         657
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 81 unique labels shared
+   pairwise times (avg, min, max): 4.24085e-06 4.1862e-06 4.28203e-06
+   crystal router                : 6.94199e-06 6.91758e-06 6.9702e-06
+   all reduce                    : 1.03929e-05 1.03346e-05 1.04594e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 4244 4244 4244
+   buffer bytes (avg, min, max): 688 688 688
+   setupds time 2.3440E-03 seconds   6  6         657          64
+ setup h1 coarse grid, nx_crs=           2
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 17 unique labels shared
+   pairwise times (avg, min, max): 7.05067e-06 6.98268e-06 7.10264e-06
+   crystal router                : 4.45773e-06 4.43766e-06 4.48413e-06
+   all reduce                    : 7.97049e-06 7.8666e-06 8.04011e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 2140 2140 2140
+   buffer bytes (avg, min, max): 352 352 352
+ done :: setup h1 coarse grid    2.6761237531900406E-003  sec
+  
+ call usrdat3
+ done :: usrdat3
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ nekuic (1) for ifld            2
+ call nekuic for ifld            2
+ call nekuic for vel  
+ xyz min     0.0000     -0.50000       0.0000    
+ uvwpt min  -3.0000       0.0000       0.0000       0.0000       0.0000    
+ PS min      0.0000       0.0000       0.0000       0.0000    
+ xyz max     8.0000       1.5000       0.0000    
+ uvwpt max   1.0000       0.0000       0.0000       0.0000       0.0000    
+ PS max      0.0000       0.0000       0.0000       0.0000    
+ done :: set initial conditions
+  
+ call userchk
+  [MONITOR] Registered module [FRAME]: Framework backbone
+  [MONITOR] Registered module [MONITOR]: Monitoring module
+  [MONITOR] Registered timer [FRM_TOT]: Total elapsed framework time
+  [MONITOR] Initial log threshold set to:  4
+  [MONITOR] Module [RUNPAR] not registered
+  [MONITOR] Registered module [RUNPAR]: Runtime parameters
+  [RUNPAR] Module [RUNPAR] registered section _RUNPAR: Runtime parameter section for rprm module
+  [RUNPAR] Section _RUNPAR registered parameter PARFWRITE: Do we write runtime parameter file
+  [RUNPAR] Section _RUNPAR registered parameter PARFNAME: Runtime parameter file name for output (without .par)
+  [RUNPAR] Module [MONITOR] registered section _MONITOR: Runtime parameter section for monitor module
+  [RUNPAR] Section _MONITOR registered parameter LOGLEVEL: Logging threshold for toolboxes
+  [RUNPAR] Section _MONITOR registered parameter IFTIMDSCR: Write timer description in the summary
+  [RUNPAR] Section _MONITOR registered parameter WALLTIME: Simulation wall time
+  [MONITOR] Module [IOTOOL] not registered
+  [MONITOR] Registered module [IOTOOL]: I/O TOOLS
+  [MONITOR] Module [CHKPOINT] not registered
+  [MONITOR] Registered module [CHKPOINT]: Checkpointing I/O
+  [MONITOR] Registered timer [CHP_TOT]: Checkpointing total time
+  [MONITOR] Registered timer [CHP_INI]: Checkpointing initialisation time
+  [RUNPAR] Module [CHKPOINT] registered section _CHKPOINT: Runtime paramere section for checkpoint module
+  [RUNPAR] Section _CHKPOINT registered parameter READCHKPT: Restat from checkpoint
+  [RUNPAR] Section _CHKPOINT registered parameter CHKPFNUMBER: Restart file number
+  [RUNPAR] Section _CHKPOINT registered parameter CHKPINTERVAL: Checkpiont saving frequency (number of time steps)
+  [MONITOR] Module [MSTEP] not registered
+  [MONITOR] Registered module [MSTEP]: Multi-file checkpointing
+  [MONITOR] Registered timer [CHP_READ]: Checkpointing reading time
+  [MONITOR] Registered timer [CHP_WRITE]: Checkpointing writing time
+  [MONITOR] Module [LEVELSET] not registered
+  [MONITOR] Registered module [LEVELSET]: Conjugated heat transfer tools
+  [RUNPAR] Module [LEVELSET] registered section _LEVELSET: Runtime paramere section for IBM tool module
+  [RUNPAR] Section _LEVELSET registered parameter AMPMSK: who knows
+  [RUNPAR] Section _LEVELSET registered parameter OPT_XMAX: who knows
+  [RUNPAR] Section _LEVELSET registered parameter OPT_YMAX: who knows
+  [RUNPAR] Section _LEVELSET registered parameter OPT_YMIN: who knows
+  [RUNPAR] Section _LEVELSET registered parameter FILTER_R: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_111: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_112: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_113: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_121: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_122: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_123: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_211: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_212: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_213: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_221: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_222: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_223: who knows
+  [RUNPAR] Section _LEVELSET registered parameter KERNEL: who knows
+  [RUNPAR] Section _LEVELSET registered parameter QC_RAMP: who knows
+  [RUNPAR] Section _LEVELSET registered parameter QA_RAMP: who knows
+  [RUNPAR] Section _LEVELSET registered parameter QF_RAMP: who knows
+  [RUNPAR] Section _LEVELSET registered parameter FLTR_TYPE: who knows
+  [RUNPAR] Section _LEVELSET registered parameter FLTR_BETA: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_SIMP: who knows
+  [RUNPAR] Section _LEVELSET registered parameter MAP_RHO: who knows
+  [MONITOR] Reseting log threshold to:  4
+  [MONITOR] Summary of registered modules
+    [FRAME     ] : Framework backbone                                                                                                                  
+        [MONITOR   ] : Monitoring module                                                                                                                   
+        [RUNPAR    ] : Runtime parameters                                                                                                                  
+        [IOTOOL    ] : I/O TOOLS                                                                                                                           
+        [CHKPOINT  ] : Checkpointing I/O                                                                                                                   
+            [MSTEP     ] : Multi-file checkpointing                                                                                                            
+        [LEVELSET  ] : Conjugated heat transfer tools                                                                                                      
+  [RUNPAR] Summary of registered runtime parameters for active sections
+#
+[_RUNPAR]               # Runtime parameter section for rprm module
+PARFWRITE            = no                     # Do we write runtime parameter file
+PARFNAME             = outparfile             # Runtime parameter file name for output (without .par)
+#
+[_MONITOR]              # Runtime parameter section for monitor module
+LOGLEVEL             = 4                      # Logging threshold for toolboxes
+IFTIMDSCR            = no                     # Write timer description in the summary
+WALLTIME             = 02:05                  # Simulation wall time
+#
+[_CHKPOINT]             # Runtime paramere section for checkpoint module
+READCHKPT            = no                     # Restat from checkpoint
+CHKPFNUMBER          = 2                      # Restart file number
+CHKPINTERVAL         = 25                     # Checkpiont saving frequency (number of time steps)
+#
+[_LEVELSET]             # Runtime paramere section for IBM tool module
+AMPMSK               = 0.72500000E+04         # who knows
+OPT_XMAX             = -0.25000000E+00        # who knows
+OPT_YMAX             = 0.25000000E+00         # who knows
+OPT_YMIN             = -0.25000000E+00        # who knows
+FILTER_R             = 0.10000000E+00         # who knows
+P_111                = 0.50000000E+00         # who knows
+P_112                = 0.10000000E+01         # who knows
+P_113                = 0.00000000E+00         # who knows
+P_121                = 0.50000000E+00         # who knows
+P_122                = 0.10000000E+01         # who knows
+P_123                = 0.00000000E+00         # who knows
+P_211                = 0.50000000E+00         # who knows
+P_212                = 0.10000000E+01         # who knows
+P_213                = 0.00000000E+00         # who knows
+P_221                = 0.50000000E-01         # who knows
+P_222                = 0.10000000E+01         # who knows
+P_223                = 0.00000000E+00         # who knows
+KERNEL               = 1                      # who knows
+QC_RAMP              = 0.80000000E+01         # who knows
+QA_RAMP              = 0.80000000E+01         # who knows
+QF_RAMP              = 0.88000000E+02         # who knows
+FLTR_TYPE            = 2                      # who knows
+FLTR_BETA            = 0.10000000E-01         # who knows
+P_SIMP               = 5                      # who knows
+MAP_RHO              = 2                      # who knows
+ 
+  [CHKPOINT] WARNING: wrong chpt_step; resetting to NSTEPS
+        0 0.00000E+00 1.00000E+00 0.00000E+00 tmax
+
+        0  0.0000E+00 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/3_conj_ht_filter/outconj_ht0.f00001                                                     
+
+        0  0.0000E+00 done :: Write checkpoint
+                              file size =     199.E-04MB
+                              avg data-throughput =     7.0MB/s
+                              io-nodes =     4
+
+
+        0  0.0000E+00 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/3_conj_ht_filter/mskconj_ht0.f00001                                                     
+
+        0  0.0000E+00 done :: Write checkpoint
+                              file size =     199.E-04MB
+                              avg data-throughput =     6.9MB/s
+                              io-nodes =     4
+
+ done :: userchk
+
+gridpoints unique/tot:           625         1024
+  dofs:                  552                  600
+  
+ Initialization successfully completed   0.56142E-01 sec
+
+Starting time loop ...
+
+     DT/DTCFL/DTFS/DTINIT   0.500E-01   0.691-309   0.695-309   0.500E-01
+Step      1, t= 5.0000000E-02, DT= 5.0000000E-02, C=  0.543 0.0000E+00 0.0000E+00
+             Solving for Hmholtz scalars
+  Temperature/Passive scalar solution
+          1  Scalars done  5.0000E-02  7.3607E-04
+             Solving for fluid
+    1 1.00000E-06         NaN         NaN         NaN       1 Divergence
+    2 1.00000E-06         NaN         NaN         NaN       1 Divergence
+    3 1.00000E-06         NaN         NaN         NaN       1 Divergence
+    4 1.00000E-06         NaN         NaN         NaN       1 Divergence
+    5 1.00000E-06         NaN         NaN         NaN       1 Divergence
+    6 1.00000E-06         NaN         NaN         NaN       1 Divergence
+    7 1.00000E-06         NaN         NaN         NaN       1 Divergence
+    8 1.00000E-06         NaN         NaN         NaN       1 Divergence
+    9 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   10 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   11 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   12 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   13 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   14 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   15 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   16 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   17 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   18 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   19 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   20 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   21 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   22 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   23 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   24 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   25 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   26 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   27 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   28 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   29 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   30 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   31 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   32 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   33 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   34 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   35 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   36 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   37 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   38 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   39 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   40 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   41 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   42 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   43 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   44 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   45 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   46 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   47 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   48 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   49 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   50 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   51 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   52 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   53 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   54 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   55 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   56 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   57 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   58 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   59 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   60 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   61 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   62 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   63 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   64 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   65 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   66 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   67 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   68 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   69 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   70 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   71 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   72 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   73 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   74 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   75 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   76 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   77 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   78 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   79 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   80 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   81 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   82 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   83 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   84 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   85 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   86 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   87 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   88 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   89 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   90 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   91 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   92 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   93 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   94 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   95 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   96 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   97 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   98 1.00000E-06         NaN         NaN         NaN       1 Divergence
+   99 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  100 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  101 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  102 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  103 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  104 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  105 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  106 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  107 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  108 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  109 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  110 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  111 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  112 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  113 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  114 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  115 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  116 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  117 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  118 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  119 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  120 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  121 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  122 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  123 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  124 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  125 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  126 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  127 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  128 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  129 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  130 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  131 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  132 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  133 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  134 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  135 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  136 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  137 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  138 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  139 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  140 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  141 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  142 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  143 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  144 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  145 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  146 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  147 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  148 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  149 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  150 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  151 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  152 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  153 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  154 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  155 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  156 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  157 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  158 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  159 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  160 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  161 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  162 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  163 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  164 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  165 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  166 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  167 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  168 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  169 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  170 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  171 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  172 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  173 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  174 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  175 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  176 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  177 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  178 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  179 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  180 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  181 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  182 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  183 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  184 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  185 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  186 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  187 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  188 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  189 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  190 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  191 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  192 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  193 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  194 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  195 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  196 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  197 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  198 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  199 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  200 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  201 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  202 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  203 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  204 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  205 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  206 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  207 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  208 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  209 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  210 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  211 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  212 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  213 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  214 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  215 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  216 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  217 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  218 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  219 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  220 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  221 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  222 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  223 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  224 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  225 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  226 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  227 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  228 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  229 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  230 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  231 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  232 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  233 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  234 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  235 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  236 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  237 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  238 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  239 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  240 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  241 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  242 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  243 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  244 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  245 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  246 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  247 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  248 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  249 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  250 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  251 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  252 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  253 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  254 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  255 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  256 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  257 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  258 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  259 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  260 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  261 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  262 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  263 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  264 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  265 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  266 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  267 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  268 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  269 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  270 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  271 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  272 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  273 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  274 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  275 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  276 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  277 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  278 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  279 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  280 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  281 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  282 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  283 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  284 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  285 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  286 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  287 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  288 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  289 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  290 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  291 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  292 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  293 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  294 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  295 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  296 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  297 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  298 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  299 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  300 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  301 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  302 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  303 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  304 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  305 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  306 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  307 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  308 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  309 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  310 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  311 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  312 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  313 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  314 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  315 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  316 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  317 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  318 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  319 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  320 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  321 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  322 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  323 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  324 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  325 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  326 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  327 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  328 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  329 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  330 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  331 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  332 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  333 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  334 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  335 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  336 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  337 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  338 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  339 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  340 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  341 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  342 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  343 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  344 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  345 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  346 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  347 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  348 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  349 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  350 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  351 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  352 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  353 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  354 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  355 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  356 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  357 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  358 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  359 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  360 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  361 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  362 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  363 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  364 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  365 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  366 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  367 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  368 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  369 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  370 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  371 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  372 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  373 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  374 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  375 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  376 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  377 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  378 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  379 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  380 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  381 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  382 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  383 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  384 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  385 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  386 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  387 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  388 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  389 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  390 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  391 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  392 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  393 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  394 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  395 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  396 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  397 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  398 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  399 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  400 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  401 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  402 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  403 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  404 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  405 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  406 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  407 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  408 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  409 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  410 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  411 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  412 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  413 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  414 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  415 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  416 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  417 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  418 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  419 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  420 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  421 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  422 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  423 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  424 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  425 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  426 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  427 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  428 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  429 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  430 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  431 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  432 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  433 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  434 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  435 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  436 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  437 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  438 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  439 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  440 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  441 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  442 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  443 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  444 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  445 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  446 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  447 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  448 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  449 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  450 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  451 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  452 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  453 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  454 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  455 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  456 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  457 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  458 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  459 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  460 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  461 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  462 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  463 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  464 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  465 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  466 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  467 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  468 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  469 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  470 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  471 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  472 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  473 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  474 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  475 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  476 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  477 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  478 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  479 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  480 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  481 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  482 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  483 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  484 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  485 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  486 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  487 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  488 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  489 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  490 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  491 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  492 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  493 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  494 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  495 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  496 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  497 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  498 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  499 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  500 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  501 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  502 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  503 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  504 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  505 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  506 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  507 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  508 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  509 1.00000E-06         NaN         NaN         NaN       1 Divergence
+  510 1.00000E-06         NaN         NaN         NaN       1 Divergence
+          1  PRES gmres       510          NaN          NaN   1.0000E-06   6.0906E-02   1.1251E-01    F
+          1  Helmh3 fluid unconverged!    201          NaN          NaN   1.0000E-08
+             L1/L2 DIV(V)                  NaN          NaN
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL              NaN          NaN
+          1  Fluid done  5.0000E-02  1.2572E-01
+filt amp 0.0000 0.0000 0.0000 0.0100
+filt trn 1.0000 1.0000 1.0000 0.9900
+Step      2, t= 1.0000000E-01, DT= 5.0000000E-02, C=  0.000 1.2831E-01 1.2831E-01
+             Solving for Hmholtz scalars
+          2  Scalars done  1.0000E-01  2.9807E-04
+             Solving for fluid
+          2  PRES gmres       510          NaN          NaN   1.0000E-06   4.8038E-02   7.7174E-02    F
+          2  Helmh3 fluid unconverged!    201          NaN          NaN   1.0000E-08
+             L1/L2 DIV(V)                  NaN          NaN
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL              NaN          NaN
+          2  Fluid done  1.0000E-01  8.8827E-02
+Step      3, t= 1.5000000E-01, DT= 5.0000000E-02, C=  0.000 2.1830E-01 8.9990E-02
+             Solving for Hmholtz scalars
+          3  Scalars done  1.5000E-01  2.6697E-04
+             Solving for fluid
+          3  PRES gmres       510          NaN          NaN   1.0000E-06   4.2636E-02   6.8391E-02    F
+          3  Helmh3 fluid unconverged!    201          NaN          NaN   1.0000E-08
+             L1/L2 DIV(V)                  NaN          NaN
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL              NaN          NaN
+          3  Fluid done  1.5000E-01  7.8945E-02
+Step      4, t= 2.0000000E-01, DT= 5.0000000E-02, C=  0.000 2.9828E-01 7.9977E-02
+             Solving for Hmholtz scalars
+          4  Scalars done  2.0000E-01  2.4168E-04
+             Solving for fluid
+          4  PRES gmres       510          NaN          NaN   1.0000E-06   3.9329E-02   6.3073E-02    F
+          4  Helmh3 fluid unconverged!    201          NaN          NaN   1.0000E-08
+             L1/L2 DIV(V)                  NaN          NaN
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL              NaN          NaN
+          4  Fluid done  2.0000E-01  7.3002E-02
+Step      5, t= 2.5000000E-01, DT= 5.0000000E-02, C=  0.000 3.7220E-01 7.3922E-02
+             Solving for Hmholtz scalars
+          5  Scalars done  2.5000E-01  2.2593E-04
+             Solving for fluid
+          5  PRES gmres       510          NaN          NaN   1.0000E-06   3.6673E-02   5.8818E-02    F
+          5  Helmh3 fluid unconverged!    201          NaN          NaN   1.0000E-08
+             L1/L2 DIV(V)                  NaN          NaN
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL              NaN          NaN
+          5  Fluid done  2.5000E-01  6.8146E-02
+Step      6, t= 3.0000000E-01, DT= 5.0000000E-02, C=  0.000 4.4121E-01 6.9011E-02
+             Solving for Hmholtz scalars
+          6  Scalars done  3.0000E-01  2.1136E-04
+             Solving for fluid
+          6  PRES gmres       510          NaN          NaN   1.0000E-06   3.5149E-02   5.6312E-02    F
+          6  Helmh3 fluid unconverged!    201          NaN          NaN   1.0000E-08
+             L1/L2 DIV(V)                  NaN          NaN
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL              NaN          NaN
+          6  Fluid done  3.0000E-01  6.5438E-02
+Step      7, t= 3.5000000E-01, DT= 5.0000000E-02, C=  0.000 5.0750E-01 6.6290E-02
+             Solving for Hmholtz scalars
+          7  Scalars done  3.5000E-01  2.4136E-04
+             Solving for fluid
+          7  PRES gmres       510          NaN          NaN   1.0000E-06   3.4985E-02   5.6121E-02    F
+          7  Helmh3 fluid unconverged!    201          NaN          NaN   1.0000E-08
+             L1/L2 DIV(V)                  NaN          NaN
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL              NaN          NaN
+          7  Fluid done  3.5000E-01  6.5362E-02
+Step      8, t= 4.0000000E-01, DT= 5.0000000E-02, C=  0.000 5.7387E-01 6.6362E-02
+             Solving for Hmholtz scalars
+          8  Scalars done  4.0000E-01  2.4150E-04
+             Solving for fluid
+          8  PRES gmres       510          NaN          NaN   1.0000E-06   4.4964E-02   6.6289E-02    F
+          8  Helmh3 fluid unconverged!    201          NaN          NaN   1.0000E-08
+             L1/L2 DIV(V)                  NaN          NaN
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL              NaN          NaN
+          8  Fluid done  4.0000E-01  7.5679E-02
+Step      9, t= 4.5000000E-01, DT= 5.0000000E-02, C=  0.000 6.5053E-01 7.6664E-02
+             Solving for Hmholtz scalars
+          9  Scalars done  4.5000E-01  2.4727E-04
+             Solving for fluid
+          9  PRES gmres       510          NaN          NaN   1.0000E-06   3.5980E-02   5.7698E-02    F
+          9  Helmh3 fluid unconverged!    201          NaN          NaN   1.0000E-08
+             L1/L2 DIV(V)                  NaN          NaN
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL              NaN          NaN
+          9  Fluid done  4.5000E-01  6.7075E-02
+  [MONITOR] Summary of registered timers
+ for Harry
+          16
+           1
+ for Harry
+          16
+           1
+           4
+           4
+  
+Module name        Timer name :          Count       Min time       Max time      Max/count
+ for Harry
+          16
+           1
+           4
+           4
+           4
+           4
+[FRAME     ]  FRM_TOT         : 0.10000000E+01 0.72989975E+00 0.72990391E+00 0.72990391E+00
+[CHKPOINT  ]    CHP_TOT       : 0.20000000E+01 0.29009674E-03 0.30803774E-03 0.15401887E-03
+[CHKPOINT  ]      CHP_INI     : 0.20000000E+01 0.29009674E-03 0.30803774E-03 0.15401887E-03
+[MSTEP     ]      CHP_READ    : 0.00000000E+00 0.00000000E+00 0.00000000E+00 0.00000000E+00
+[MSTEP     ]      CHP_WRITE   : 0.00000000E+00 0.00000000E+00 0.00000000E+00 0.00000000E+00
+  
+ for Harry
+          16
+           1
+           4
+           4
+
+        9  4.5000E-01 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/3_conj_ht_filter/conj_ht0.f00001                                                        
+
+        9  4.5000E-01 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    13.1MB/s
+                              io-nodes =     4
+
+
+end of time-step loop
+
+runtime statistics:
+ init time   5.6142234243452549E-002   7.7904719796872329E-002
+ prep time           3   1.9101416692137718E-003   2.6505723100926177E-003
+ pres time           9  0.61924466583877802       0.85928326202130001     
+ crsl time        4590   5.3737943060696125E-002   7.4568450169794312E-002
+ crsl min    5.3737943060696125E-002
+ crsl max    6.2241986393928528E-002
+ crsl avg    5.7703711092472076E-002
+ hmhz time          18   8.7201630696654320E-002  0.12100370953878561     
+ eslv time           0   0.0000000000000000        0.0000000000000000     
+ proj time           0   0.0000000000000000        0.0000000000000000     
+ usvp time          10   1.0879691690206528E-003   1.5097000395931815E-003
+ usfq time           0   1.2501031160354614E-003   1.7346821743792170E-003
+ usbc time          42   1.5899967402219772E-003   2.2063291957316318E-003
+ usbc min    1.5899967402219772E-003
+ usbc max    1.7245160415768623E-003
+ usb  avg    1.6801219899207354E-003
+ mltd time          18   2.3795105516910553E-004   3.3018832485244684E-004
+ cdtp time          18   1.7631798982620239E-004   2.4466435612437371E-004
+ axhm time        6624   9.1250451281666756E-002  0.12662197958866322     
+ advc time          27   1.2091714888811111E-003   1.6778841686129681E-003
+ mxmf time   0.0000000000000000        0.0000000000000000     
+ adc3 time   0.0000000000000000        0.0000000000000000     
+ col2 time   0.0000000000000000        0.0000000000000000     
+ col3 time   0.0000000000000000        0.0000000000000000     
+ a2s2 time   0.0000000000000000        0.0000000000000000     
+ add2 time   0.0000000000000000        0.0000000000000000     
+ invc time   0.0000000000000000        0.0000000000000000     
+ tgop time       15219   5.9718856588006020E-002   8.2867752802709027E-002
+ dadd time           0  0.14127313997596502       0.19603502662410355     
+ vdss time        1883   1.9560213200747967E-002   2.7142363482783319E-002
+ vdss min    1.9560213200747967E-002
+ vdss max    2.0447303541004658E-002
+ vdss avg    2.0079204579815269E-002
+ dsum time        9392   7.1311106905341148E-002   9.8953521831263824E-002
+ dsum min    6.9358649663627148E-002
+ dsum max    7.4652270413935184E-002
+ dsum avg    7.1435350924730301E-002
+ ddsl time           0   0.0000000000000000        0.0000000000000000     
+
+#  nid       tusbc       tdadd       tcrsl       tvdss       tdsum        tgop    qqq    F
+           0  1.5900E-03  1.4127E-01  5.3738E-02  1.9560E-02  7.1311E-02  5.9719E-02 qqq
+           1  1.6816E-03  1.4778E-01  5.8187E-02  2.0332E-02  7.0419E-02  6.0007E-02 qqq
+           2  1.7245E-03  1.5790E-01  5.6648E-02  1.9978E-02  7.4652E-02  6.2148E-02 qqq
+           3  1.7243E-03  1.5674E-01  6.2242E-02  2.0447E-02  6.9359E-02  5.9213E-02 qqq
+  
+run successful: dying ...
+  
+  
+total elapsed time             :   7.77883E-01 sec
+total solver time w/o IO       :   7.18742E-01 sec
+time/timestep                  :   7.98603E-02 sec
+avg throughput per timestep    :   1.95654E+03 gridpts/CPUs
+total max memory usage         :   8.17971E-02 GB
+

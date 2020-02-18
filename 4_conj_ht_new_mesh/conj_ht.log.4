@@ -1,0 +1,283 @@
+/----------------------------------------------------------\\
+|      _   __ ______ __ __  ______  ____   ____   ____     |
+|     / | / // ____// //_/ / ____/ / __ \\/ __ \\/ __ \\   |
+|    /  |/ // __/  / ,<   /___ \\ / / / // / / // / / /    |
+|   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
+|  /_/ |_//_____//_/ |_|/_____/  \\___/ \\___/ \\___/      |
+|                                                          |
+|----------------------------------------------------------|
+|                                                          |
+| NEK5000:  Open Source Spectral Element Solver            |
+| COPYRIGHT (c) 2008-2017 UCHICAGO ARGONNE, LLC            |
+| Version:  v17.0                                          |
+| Web:      http://nek5000.mcs.anl.gov                     |
+|                                                          |
+\\----------------------------------------------------------/
+                                                              
+
+ Number of processors:           4
+ REAL    wdsize      :           8
+ INTEGER wdsize      :           4
+ Timer accuracy      : 1.93E-07
+  
+ Reading /scratch/nobis/Nek5000/run/ImplimentingCLio/4_conj_ht_new_mesh/conj_ht.par                                                          
+general = [(null)]
+general:stopat = [numSteps]
+general:numsteps = [9]
+general:dt = [5.000000E-03]
+general:timestepper = [bdf2]
+general:variabledt = [no]
+general:targetcfl = [0.5]
+general:writecontrol = [timeStep]
+general:writeinterval = [1]
+general:dealiasing = [yes]
+general:filtering = [explicit]
+general:filterweight = [0.100000E-01]
+general:filtercutoffratio = [0.84]
+general:userparam01 = [5]
+problemtype = [(null)]
+problemtype:equation = [incompNS]
+problemtype:variableproperties = [yes]
+mesh = [(null)]
+mesh:writetofieldfile = [yes]
+pressure = [(null)]
+pressure:preconditioner = [semg_xxt]
+pressure:residualtol = [1.000000E-06]
+pressure:residualproj = [no]
+pressure:writetofieldfile = [yes]
+velocity = [(null)]
+velocity:residualtol = [1.000000E-08]
+velocity:residualproj = [no]
+velocity:density = [1.0]
+velocity:viscosity = [0.5]
+velocity:advection = [yes]
+velocity:writetofieldfile = [yes]
+temperature = [(null)]
+temperature:conjugateheattransfer = [yes]
+temperature:rhocp = [1]
+temperature:conductivity = [0.5]
+_runpar = [(null)]
+_runpar:parfwrite = [no]
+_runpar:parfname = [outparfile]
+_monitor = [(null)]
+_monitor:loglevel = [4]
+_monitor:walltime = [02:05]
+_chkpoint = [(null)]
+_chkpoint:readchkpt = [no]
+_chkpoint:chkpfnumber = [2]
+_chkpoint:chkpinterval = [25]
+_levelset = [(null)]
+_levelset:ampmsk = [300.000000000000]
+_levelset:opt_xmax = [-0.250000000000000]
+_levelset:opt_ymax = [0.250000000000000]
+_levelset:opt_ymin = [-0.250000000000000]
+_levelset:filter_r = [0.2]
+_levelset:p_111 = [0.5]
+_levelset:p_112 = [1]
+_levelset:p_113 = [0.000000000000000]
+_levelset:p_121 = [0.5]
+_levelset:p_122 = [1]
+_levelset:p_123 = [0.000000000000000]
+_levelset:p_211 = [0.5]
+_levelset:p_212 = [1]
+_levelset:p_213 = [0.000000000000000]
+_levelset:p_221 = [0.05]
+_levelset:p_222 = [1]
+_levelset:p_223 = [0.000000000000000]
+_levelset:kernel = [2]
+_levelset:qf_ramp = [88]
+_levelset:qa_ramp = [8]
+_levelset:qc_ramp = [8]
+_levelset:fltr_type = [2]
+_levelset:fltr_beta = [0.01]
+_levelset:p_simp = [5]
+_levelset:map_rho = [2]
+ Reading /scratch/nobis/Nek5000/run/ImplimentingCLio/4_conj_ht_new_mesh/conj_ht.re2                                                          
+ Switch on stress formulation to support PN/PN and IFUSERVP=T
+ mapping elements to processors
+ Reading /scratch/nobis/Nek5000/run/ImplimentingCLio/4_conj_ht_new_mesh/conj_ht.ma2                                                          
+           0          12          12          48          48  NELV
+           1          12          12          48          48  NELV
+           2          12          12          48          48  NELV
+           3          12          12          48          48  NELV
+ RANK     0 IEG       1       2       3       9      10      11      17      18
+                     19      25      26      27
+  
+ element load imbalance:            0          12          12
+ done :: mapping   0.16531E-03 sec
+
+  
+  preading mesh 
+  preading bc for ifld           1
+  preading bc for ifld           2
+ done :: read .re2 file   0.24E-02 sec
+
+ nelgt/nelgv/lelt:          48          48         104
+ lx1  /lx2  /lx3 :           4           4           4
+ setup mesh topology
+   Right-handed check complete for      48 elements. OK.
+   setvert2d:   4         301         493         301         301
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 33 unique labels shared
+   pairwise times (avg, min, max): 9.09728e-07 8.69483e-07 9.48319e-07
+   crystal router                : 1.29757e-06 1.25454e-06 1.32099e-06
+   all reduce                    : 1.82223e-06 1.81366e-06 1.83713e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 1908 1652 2180
+   buffer bytes (avg, min, max): 264 112 416
+   setupds time 3.7460E-04 seconds   0  4         301          48
+           4  max multiplicity
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ NOTE: All elements deformed , param(59) ^=0
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+ regenerate geometry data           1
+ NOTE: All elements deformed , param(59) ^=0
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+   0.0000000000000000        9.0000000000000000       Xrange
+   0.0000000000000000        1.0000000000000000       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+ IFTRAN   = T
+ IFFLOW   = T
+ IFHEAT   = T
+ IFSPLIT  = T
+ IFLOMACH = F
+ IFUSERVP = T
+ IFUSERMV = F
+ IFPERT   = F
+ IFADJ    = F
+ IFSTRS   = T
+ IFCHAR   = F
+ IFCYCLIC = F
+ IFAXIS   = F
+ IFMVBD   = F
+ IFMELT   = F
+ IFNEKNEK = F
+ IFSYNC   = F
+   
+ IFVCOR   = F
+ IFINTQ   = F
+ IFGEOM   = F
+ IFSURT   = F
+ IFWCNO   = F
+   
+ IFTMSH for field           1    =  F
+ IFADVC for field           1    =  T
+ IFNONL for field           1    =  F
+   
+ IFTMSH for field           2    =  T
+ IFADVC for field           2    =  T
+ IFNONL for field           2    =  F
+   
+ Dealiasing enabled, lxd=           7
+  
+ Estimated eigenvalues
+ EIGAA =    4.9957256845020206     
+ EIGGA =    9651.9305526413591     
+ EIGAE =   0.12184696791468343     
+ EIGAS =    3.0487804878048777E-003
+ EIGGE =    9651.9305526413591     
+ EIGGS =    2.0000000000000000     
+  
+ verify mesh topology
+   0.0000000000000000        9.0000000000000000       Xrange
+   0.0000000000000000        1.0000000000000000       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+  E-solver strategy:  0 itr
+ mg_nx:           1           3
+ mg_ny:           1           3
+ mg_nz:           0           0
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 13 unique labels shared
+   pairwise times (avg, min, max): 8.14581e-07 7.52276e-07 8.59238e-07
+   crystal router                : 1.12414e-06 1.08294e-06 1.15512e-06
+   all reduce                    : 1.30122e-06 1.27712e-06 1.31354e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 876 788 980
+   buffer bytes (avg, min, max): 104 48 160
+   setupds time 2.1218E-04 seconds   1  2          69          48
+   setvert2d:   4         301         493         301         301
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 33 unique labels shared
+   pairwise times (avg, min, max): 8.70822e-07 8.23988e-07 9.11159e-07
+   crystal router                : 1.26166e-06 1.22078e-06 1.28881e-06
+   all reduce                    : 1.8624e-06 1.84411e-06 1.87899e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 1908 1652 2180
+   buffer bytes (avg, min, max): 264 112 416
+   setupds time 3.3801E-04 seconds   2  4         301          48
+ regenerate geometry data           1
+ NOTE: All elements deformed , param(59) ^=0
+ done :: regenerate geometry data           1
+  
+ h1_mg_nx:           1           3
+ h1_mg_ny:           1           3
+ h1_mg_nz:           0           0
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 13 unique labels shared
+   pairwise times (avg, min, max): 8.36095e-07 7.92462e-07 8.70507e-07
+   crystal router                : 1.12044e-06 1.07982e-06 1.14446e-06
+   all reduce                    : 1.30202e-06 1.27405e-06 1.31694e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 876 788 980
+   buffer bytes (avg, min, max): 104 48 160
+   setupds time 2.0411E-04 seconds   3  2          69          48
+   setvert2d:   4         301         493         301         301
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 33 unique labels shared
+   pairwise times (avg, min, max): 8.64442e-07 8.02986e-07 9.10601e-07
+   crystal router                : 1.29833e-06 1.27768e-06 1.32667e-06
+   all reduce                    : 1.85664e-06 1.83713e-06 1.88458e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 1908 1652 2180
+   buffer bytes (avg, min, max): 264 112 416
+   setupds time 3.3908E-04 seconds   4  4         301          48
+   setvert2d:   4         301         493         301         301
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 33 unique labels shared
+   pairwise times (avg, min, max): 8.69448e-07 8.10577e-07 9.12882e-07
+   crystal router                : 1.30243e-06 1.26595e-06 1.32308e-06
+   all reduce                    : 1.81191e-06 1.792e-06 1.82921e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 1908 1652 2180
+   buffer bytes (avg, min, max): 264 112 416
+   setupds time 3.2542E-04 seconds   5  4         301          48
+   setvert2d:   6         533        1301         533         533
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 53 unique labels shared
+   pairwise times (avg, min, max): 9.518e-07 9.20007e-07 9.86829e-07
+   crystal router                : 1.60618e-06 1.55652e-06 1.63005e-06
+   all reduce                    : 1.95317e-06 1.91345e-06 1.98931e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 2940 2516 3380
+   buffer bytes (avg, min, max): 424 176 672
+   setupds time 4.0702E-04 seconds   6  6         533          48
+ Error in generalev, info=          12           6          -6

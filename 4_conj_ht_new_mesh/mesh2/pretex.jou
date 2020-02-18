@@ -1,0 +1,27 @@
+ NEKTON Version   2.6                                                                                                               
+ Choose a Name for This Session:
+  Beginning Session toto                                                                                                            
+   1 READ PREVIOUS PARAMETERS 
+   2 TYPE IN  NEW  PARAMETERS 
+   3 CONJ. HEAT TRANSFER MERGE
+Choose item:
+ 
+ Assemble form of equation to be solved 
+ using mouse to toggle logical switches on and off.
+ CURRENT SETTING: UNSTEADY TWO DIMENSIONAL STOKES                            
+   1 ACCEPT CURRENT SWITCHES  
+   2                          
+   3 DIMENSION               2
+   4 UNSTEADY                 
+   5 FLUID FLOW              Y
+   6 ADVECTION               N
+   7 STRESS FORMULATION      N
+   8 SPLIT  FORMULATION      N
+   9 TURBULENCE MODEL        N
+  10 HEAT TRANSFER           N
+  11 ADDL PASSIVE SCALARS    0
+  12 MULTIGRID SOLUTION      N
+Choose item:
+   1 BUILD FROM FILE          
+   2 BUILD INTERACTIVELY      
+Choose item:

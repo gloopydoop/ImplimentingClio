@@ -1,0 +1,60 @@
+-2                         (spatial dimension)
+2                         (number of fields)
+#
+#   This is a comment
+#
+#box_1
+#-1  -2                     (nelx,nely,nelz for Box 1)
+#0.0   1.0   1.0
+#1.0   1.5   1.0
+#   ,   ,   ,             velocity bc's: Xleft Xright Ybottom Ytop)
+#I  ,I  ,E  ,I             temperature BCs
+box_2
+-6  -2                     (nelx,nely,nelz for Box 1)
+1.0   7.0   1.0
+1.0   1.5   1.0
+W  ,W  ,   ,W             velocity bc's: Xleft Xright Ybottom Ytop)
+E  ,E  ,   ,I             temperature BCs
+#box_3
+#-1  -2                     (nelx,nely,nelz for Box 1)
+#7.0   8.0   1.0
+#1.0   1.5   1.0
+#   ,   ,   ,             velocity bc's: Xleft Xright Ybottom Ytop)
+#E  ,I  ,E  ,I             temperature BCs
+box_4
+-1  -2                     (nelx,nely,nelz for Box 1)
+0.0   1.0   1.0
+0.0   1.0   1.0
+v  ,   ,W  ,W             velocity bc's: Xleft Xright Ybottom Ytop)
+t  ,   ,E  ,E             temperature BCs
+box_5
+-6  -2                     (nelx,nely,nelz for Box 1)
+1.0   7.0   1.0
+0.0   1.0   1.0
+   ,   ,   ,               velocity bc's: Xleft Xright Ybottom Ytop)
+   ,   ,   ,              temperature BCs
+box_6
+-1  -2                     (nelx,nely,nelz for Box 1)
+7.0   8.0   1.0
+0.0   1.0   1.0
+   ,O  ,W  ,W            velocity bc's: Xleft Xright Ybottom Ytop)
+   ,O  ,E  ,E             temperature BCs
+#box_7
+#-1  -2                     (nelx,nely,nelz for Box 1)
+#0.0   1.0   1.0
+#-0.5   0.0   1.0
+#   ,   ,   ,             velocity bc's: Xleft Xright Ybottom Ytop)
+#I  ,E  ,I  ,E             temperature BCs
+box_8
+-6  -2                     (nelx,nely,nelz for Box 1)
+1.0   7.0   1.0
+-0.5   0.0   1.0
+W  ,W  ,W  ,              velocity bc's: Xleft Xright Ybottom Ytop)
+E  ,E  ,I  ,              temperature BCs
+#box_9
+#-1  -2                     (nelx,nely,nelz for Box 1)
+#7.0   8.0   1.0
+#-0.5   0.0   1.0
+#   ,   ,   ,             velocity bc's: Xleft Xright Ybottom Ytop)
+#E  ,I  ,I  ,E             temperature BCs
+

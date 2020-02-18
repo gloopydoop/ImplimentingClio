@@ -1,0 +1,15 @@
+-2                         (spatial dimension)
+1                         (number of fields)
+#
+#   This is a comment
+#
+box_1
+-1 -1
+0.0 1.0 1.0
+0.0 1.0 1.0
+W  ,E  ,W  ,W  
+box_2
+-1 -1
+1.0 2.0 1.0
+0.0 1.0 1.0
+E  ,W  ,W  ,W  

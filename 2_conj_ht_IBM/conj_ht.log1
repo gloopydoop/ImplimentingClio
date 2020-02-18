@@ -1,0 +1,804 @@
+general = [(null)]
+general:stopat = [endTime]
+general:endtime = [0.5]
+general:dt = [5.000000E-02]
+general:timestepper = [bdf2]
+general:variabledt = [no]
+general:targetcfl = [0.5]
+general:writecontrol = [runTime]
+general:writeinterval = [0.01]
+general:dealiasing = [yes]
+general:filtering = [explicit]
+general:filterweight = [0.100000E-01]
+general:filtercutoffratio = [0.84]
+general:userparam01 = [5]
+problemtype = [(null)]
+problemtype:equation = [incompNS]
+problemtype:variableproperties = [yes]
+mesh = [(null)]
+mesh:writetofieldfile = [yes]
+pressure = [(null)]
+pressure:preconditioner = [semg_xxt]
+pressure:residualtol = [1.000000E-06]
+pressure:residualproj = [no]
+pressure:writetofieldfile = [yes]
+velocity = [(null)]
+velocity:residualtol = [1.000000E-08]
+velocity:residualproj = [no]
+velocity:density = [1.0]
+velocity:viscosity = [0.5]
+velocity:advection = [yes]
+velocity:writetofieldfile = [yes]
+temperature = [(null)]
+temperature:conjugateheattransfer = [yes]
+temperature:rhocp = [1]
+temperature:conductivity = [0.5]
+_runpar = [(null)]
+_runpar:parfwrite = [no]
+_runpar:parfname = [outparfile]
+_monitor = [(null)]
+_monitor:loglevel = [4]
+_monitor:walltime = [02:05]
+_chkpoint = [(null)]
+_chkpoint:readchkpt = [no]
+_chkpoint:chkpfnumber = [2]
+_chkpoint:chkpinterval = [25]
+_levelset = [(null)]
+_levelset:ampmsk = [7250.000000000000]
+_levelset:opt_xmax = [-0.250000000000000]
+_levelset:opt_ymax = [0.250000000000000]
+_levelset:opt_ymin = [-0.250000000000000]
+_levelset:filter_r = [0.020000000000000]
+_levelset:p_111 = [0.5]
+_levelset:p_112 = [1]
+_levelset:p_113 = [0.000000000000000]
+_levelset:p_121 = [0.5]
+_levelset:p_122 = [1]
+_levelset:p_123 = [0.000000000000000]
+_levelset:p_211 = [0.5]
+_levelset:p_212 = [1]
+_levelset:p_213 = [0.000000000000000]
+_levelset:p_221 = [0.05]
+_levelset:p_222 = [1]
+_levelset:p_223 = [0.000000000000000]
+_levelset:kernel = [2]
+_levelset:qf_ramp = [88]
+_levelset:qa_ramp = [8]
+_levelset:qc_ramp = [8]
+_levelset:fltr_type = [2]
+_levelset:fltr_beta = [0.01]
+_levelset:p_simp = [5]
+_levelset:map_rho = [2]
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 4012 4012 4012
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 8204 8204 8204
+   buffer bytes (avg, min, max): 0 0 0
+/----------------------------------------------------------\\
+|      _   __ ______ __ __  ______  ____   ____   ____     |
+|     / | / // ____// //_/ / ____/ / __ \\/ __ \\/ __ \\   |
+|    /  |/ // __/  / ,<   /___ \\ / / / // / / // / / /    |
+|   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
+|  /_/ |_//_____//_/ |_|/_____/  \\___/ \\___/ \\___/      |
+|                                                          |
+|----------------------------------------------------------|
+|                                                          |
+| NEK5000:  Open Source Spectral Element Solver            |
+| COPYRIGHT (c) 2008-2017 UCHICAGO ARGONNE, LLC            |
+| Version:  v17.0                                          |
+| Web:      http://nek5000.mcs.anl.gov                     |
+|                                                          |
+\\----------------------------------------------------------/
+                                                              
+
+ Number of processors:           1
+ REAL    wdsize      :           8
+ INTEGER wdsize      :           4
+ Timer accuracy      : 2.18E-07
+  
+ Reading /scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht.par                                                               
+ Reading /scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht.re2                                                               
+ Switch on stress formulation to support PN/PN and IFUSERVP=T
+ mapping elements to processors
+ Reading /scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht.ma2                                                               
+           0          32          64          32          64  NELV
+ RANK     0 IEG       1       2       3       4       5       6       7       8
+                      9      10      11      12      13      14      15      16
+                     17      18      19      20      21      22      23      24
+                     25      26      27      28      29      30      31      32
+                     33      34      35      36      37      38      39      40
+                     41      42      43      44      45      46      47      48
+                     49      50      51      52      53      54      55      56
+                     57      58      59      60      61      62      63      64
+  
+ element load imbalance:            0          64          64
+ done :: mapping   0.83249E-04 sec
+
+  
+  preading mesh 
+  preading bc for ifld           1
+  preading bc for ifld           2
+ done :: read .re2 file   0.19E-02 sec
+
+ nelgt/nelgv/lelt:          64          32         104
+ lx1  /lx2  /lx3 :           4           4           4
+ setup mesh topology
+   Right-handed check complete for      64 elements. OK.
+   setvert2d:   4         233         489         233         233
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 2.3664E-04 seconds   0  4         233          32
+   setvert2d:   4         369         625         369         369
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 3.3597E-04 seconds   1  4         369          64
+           4  max multiplicity
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ NOTE: All elements deformed , param(59) ^=0
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+ regenerate geometry data           1
+ NOTE: All elements deformed , param(59) ^=0
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+   0.0000000000000000        8.0000000000000000       Xrange
+ -0.50000000000000000        1.5000000000000000       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+ IFTRAN   = T
+ IFFLOW   = T
+ IFHEAT   = T
+ IFSPLIT  = T
+ IFLOMACH = F
+ IFUSERVP = T
+ IFUSERMV = F
+ IFPERT   = F
+ IFADJ    = F
+ IFSTRS   = T
+ IFCHAR   = F
+ IFCYCLIC = F
+ IFAXIS   = F
+ IFMVBD   = F
+ IFMELT   = F
+ IFNEKNEK = F
+ IFSYNC   = F
+   
+ IFVCOR   = F
+ IFINTQ   = F
+ IFGEOM   = F
+ IFSURT   = F
+ IFWCNO   = F
+   
+ IFTMSH for field           1    =  F
+ IFADVC for field           1    =  T
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 1516 1516 1516
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 4012 4012 4012
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 1516 1516 1516
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 4012 4012 4012
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 4012 4012 4012
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 6508 6508 6508
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 1516 1516 1516
+   buffer bytes (avg, min, max): 0 0 0
+ IFNONL for field           1    =  F
+   
+ IFTMSH for field           2    =  T
+ IFADVC for field           2    =  T
+ IFNONL for field           2    =  F
+   
+ Dealiasing enabled, lxd=           7
+  
+ Estimated eigenvalues
+ EIGAA =    5.0119084849281892     
+ EIGGA =    6929.6958760953594     
+ EIGAE =   0.15421256876702122     
+ EIGAS =    3.8461538461538464E-003
+ EIGGE =    6929.6958760953594     
+ EIGGS =    2.0000000000000000     
+  
+ verify mesh topology
+   0.0000000000000000        8.0000000000000000       Xrange
+ -0.50000000000000000        1.5000000000000000       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+  E-solver strategy:  0 itr
+ mg_nx:           1           3
+ mg_ny:           1           3
+ mg_nz:           0           0
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 7.8466E-05 seconds   2  2          81          32
+   setvert2d:   4         233         489         233         343
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 1.8015E-04 seconds   3  4         233          32
+ regenerate geometry data           1
+ NOTE: All elements deformed , param(59) ^=0
+ done :: regenerate geometry data           1
+  
+ h1_mg_nx:           1           3
+ h1_mg_ny:           1           3
+ h1_mg_nz:           0           0
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 7.1411E-05 seconds   4  2          81          32
+   setvert2d:   4         233         489         233         343
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 1.7933E-04 seconds   5  4         233          32
+   setvert2d:   4         233         489         233         343
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 1.8674E-04 seconds   6  4         233          32
+   setvert2d:   6         385        1409         385         385
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 2.4897E-04 seconds   7  6         385          32
+ setup h1 coarse grid, nx_crs=           2
+ call usrsetvert
+ done :: usrsetvert
+
+ done :: setup h1 coarse grid    3.5864626988768578E-004  sec
+  
+ call usrdat3
+ done :: usrdat3
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ nekuic (1) for ifld            2
+ call nekuic for ifld            2
+ call nekuic for vel  
+ xyz min     0.0000     -0.50000       0.0000    
+ uvwpt min   0.0000       0.0000       0.0000       0.0000       0.0000    
+ PS min      0.0000       0.0000       0.0000       0.0000    
+ xyz max     8.0000       1.5000       0.0000    
+ uvwpt max   1.0000       0.0000       0.0000       0.0000       0.0000    
+ PS max      0.0000       0.0000       0.0000       0.0000    
+ done :: set initial conditions
+  
+ call userchk
+  [MONITOR] Registered module [FRAME]: Framework backbone
+  [MONITOR] Registered module [MONITOR]: Monitoring module
+  [MONITOR] Registered timer [FRM_TOT]: Total elapsed framework time
+  [MONITOR] Initial log threshold set to:  4
+  [MONITOR] Module [RUNPAR] not registered
+  [MONITOR] Registered module [RUNPAR]: Runtime parameters
+  [RUNPAR] Module [RUNPAR] registered section _RUNPAR: Runtime parameter section for rprm module
+  [RUNPAR] Section _RUNPAR registered parameter PARFWRITE: Do we write runtime parameter file
+  [RUNPAR] Section _RUNPAR registered parameter PARFNAME: Runtime parameter file name for output (without .par)
+  [RUNPAR] Module [MONITOR] registered section _MONITOR: Runtime parameter section for monitor module
+  [RUNPAR] Section _MONITOR registered parameter LOGLEVEL: Logging threshold for toolboxes
+  [RUNPAR] Section _MONITOR registered parameter IFTIMDSCR: Write timer description in the summary
+  [RUNPAR] Section _MONITOR registered parameter WALLTIME: Simulation wall time
+  [MONITOR] Module [IOTOOL] not registered
+  [MONITOR] Registered module [IOTOOL]: I/O TOOLS
+  [MONITOR] Module [CHKPOINT] not registered
+  [MONITOR] Registered module [CHKPOINT]: Checkpointing I/O
+  [MONITOR] Registered timer [CHP_TOT]: Checkpointing total time
+  [MONITOR] Registered timer [CHP_INI]: Checkpointing initialisation time
+  [RUNPAR] Module [CHKPOINT] registered section _CHKPOINT: Runtime paramere section for checkpoint module
+  [RUNPAR] Section _CHKPOINT registered parameter READCHKPT: Restat from checkpoint
+  [RUNPAR] Section _CHKPOINT registered parameter CHKPFNUMBER: Restart file number
+  [RUNPAR] Section _CHKPOINT registered parameter CHKPINTERVAL: Checkpiont saving frequency (number of time steps)
+  [MONITOR] Module [MSTEP] not registered
+  [MONITOR] Registered module [MSTEP]: Multi-file checkpointing
+  [MONITOR] Registered timer [CHP_READ]: Checkpointing reading time
+  [MONITOR] Registered timer [CHP_WRITE]: Checkpointing writing time
+  [MONITOR] Module [LEVELSET] not registered
+  [MONITOR] Registered module [LEVELSET]: Conjugated heat transfer tools
+  [RUNPAR] Module [LEVELSET] registered section _LEVELSET: Runtime paramere section for IBM tool module
+  [RUNPAR] Section _LEVELSET registered parameter AMPMSK: who knows
+  [RUNPAR] Section _LEVELSET registered parameter OPT_XMAX: who knows
+  [RUNPAR] Section _LEVELSET registered parameter OPT_YMAX: who knows
+  [RUNPAR] Section _LEVELSET registered parameter OPT_YMIN: who knows
+  [RUNPAR] Section _LEVELSET registered parameter FILTER_R: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_111: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_112: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_113: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_121: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_122: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_123: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_211: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_212: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_213: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_221: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_222: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_223: who knows
+  [RUNPAR] Section _LEVELSET registered parameter KERNEL: who knows
+  [RUNPAR] Section _LEVELSET registered parameter QC_RAMP: who knows
+  [RUNPAR] Section _LEVELSET registered parameter QA_RAMP: who knows
+  [RUNPAR] Section _LEVELSET registered parameter QF_RAMP: who knows
+  [RUNPAR] Section _LEVELSET registered parameter FLTR_TYPE: who knows
+  [RUNPAR] Section _LEVELSET registered parameter FLTR_BETA: who knows
+  [RUNPAR] Section _LEVELSET registered parameter P_SIMP: who knows
+  [RUNPAR] Section _LEVELSET registered parameter MAP_RHO: who knows
+  [MONITOR] Reseting log threshold to:  4
+  [MONITOR] Summary of registered modules
+    [FRAME     ] : Framework backbone                                                                                                                  
+        [MONITOR   ] : Monitoring module                                                                                                                   
+        [RUNPAR    ] : Runtime parameters                                                                                                                  
+        [IOTOOL    ] : I/O TOOLS                                                                                                                           
+        [CHKPOINT  ] : Checkpointing I/O                                                                                                                   
+            [MSTEP     ] : Multi-file checkpointing                                                                                                            
+        [LEVELSET  ] : Conjugated heat transfer tools                                                                                                      
+  [RUNPAR] Summary of registered runtime parameters for active sections
+#
+[_RUNPAR]               # Runtime parameter section for rprm module
+PARFWRITE            = no                     # Do we write runtime parameter file
+PARFNAME             = outparfile             # Runtime parameter file name for output (without .par)
+#
+[_MONITOR]              # Runtime parameter section for monitor module
+LOGLEVEL             = 4                      # Logging threshold for toolboxes
+IFTIMDSCR            = no                     # Write timer description in the summary
+WALLTIME             = 02:05                  # Simulation wall time
+#
+[_CHKPOINT]             # Runtime paramere section for checkpoint module
+READCHKPT            = no                     # Restat from checkpoint
+CHKPFNUMBER          = 2                      # Restart file number
+CHKPINTERVAL         = 25                     # Checkpiont saving frequency (number of time steps)
+#
+[_LEVELSET]             # Runtime paramere section for IBM tool module
+AMPMSK               = 0.72500000E+04         # who knows
+OPT_XMAX             = -0.25000000E+00        # who knows
+OPT_YMAX             = 0.25000000E+00         # who knows
+OPT_YMIN             = -0.25000000E+00        # who knows
+FILTER_R             = 0.20000000E-01         # who knows
+P_111                = 0.50000000E+00         # who knows
+P_112                = 0.10000000E+01         # who knows
+P_113                = 0.00000000E+00         # who knows
+P_121                = 0.50000000E+00         # who knows
+P_122                = 0.10000000E+01         # who knows
+P_123                = 0.00000000E+00         # who knows
+P_211                = 0.50000000E+00         # who knows
+P_212                = 0.10000000E+01         # who knows
+P_213                = 0.00000000E+00         # who knows
+P_221                = 0.50000000E-01         # who knows
+P_222                = 0.10000000E+01         # who knows
+P_223                = 0.00000000E+00         # who knows
+KERNEL               = 2                      # who knows
+QC_RAMP              = 0.80000000E+01         # who knows
+QA_RAMP              = 0.80000000E+01         # who knows
+QF_RAMP              = 0.88000000E+02         # who knows
+FLTR_TYPE            = 2                      # who knows
+FLTR_BETA            = 0.10000000E-01         # who knows
+P_SIMP               = 5                      # who knows
+MAP_RHO              = 2                      # who knows
+ 
+        0 0.00000E+00 1.00000E+00 0.00000E+00 tmax
+
+        0  0.0000E+00 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/outconj_ht0.f00001                                                        
+
+        0  0.0000E+00 done :: Write checkpoint
+                              file size =     199.E-04MB
+                              avg data-throughput =    56.3MB/s
+                              io-nodes =     1
+
+
+        0  0.0000E+00 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/mskconj_ht0.f00001                                                        
+
+        0  0.0000E+00 done :: Write checkpoint
+                              file size =     199.E-04MB
+                              avg data-throughput =    61.0MB/s
+                              io-nodes =     1
+
+ done :: userchk
+
+gridpoints unique/tot:           325          512
+  dofs:                  264                  312
+  
+ Initialization successfully completed   0.99063E-02 sec
+
+Starting time loop ...
+
+     DT/DTCFL/DTFS/DTINIT   0.500E-01   0.465-309   0.000E+00   0.500E-01
+Step      1, t= 5.0000000E-02, DT= 5.0000000E-02, C=  0.181 0.0000E+00 0.0000E+00
+             Solving for Hmholtz scalars
+  Temperature/Passive scalar solution
+ New CG1-tolerance (RINIT*epsm) =    7.0412351900948926E-014   0.0000000000000000     
+          1  Hmholtz TEMP       1   7.0412E-01   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP       2   3.5821E-01   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP       3   2.2556E-01   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP       4   3.4000E-01   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP       5   1.5831E-01   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP       6   1.8083E-01   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP       7   1.4458E-01   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP       8   1.2487E-01   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP       9   8.7627E-02   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      10   6.8281E-02   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      11   1.9831E-02   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      12   9.0899E-03   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      13   6.2276E-03   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      14   3.1794E-03   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      15   2.4342E-03   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      16   3.2060E-03   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      17   2.9304E-03   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      18   1.3078E-03   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      19   4.6323E-04   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      20   3.2027E-04   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      21   2.1594E-04   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      22   2.1318E-04   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      23   2.0645E-04   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      24   1.9569E-04   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      25   1.0213E-04   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      26   6.3913E-05   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      27   3.1000E-05   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      28   3.6676E-05   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      29   2.4718E-05   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      30   3.4061E-05   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      31   1.9216E-05   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      32   7.0883E-06   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      33   5.4785E-06   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      34   2.8178E-06   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      35   3.2341E-06   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      36   3.1286E-06   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      37   2.3195E-06   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      38   1.4628E-06   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      39   1.2080E-06   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      40   4.6028E-07   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      41   3.4792E-07   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      42   3.2870E-07   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      43   1.7350E-07   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      44   1.8391E-07   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      45   1.0302E-07   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      46   6.0310E-08   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      47   5.3284E-08   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      48   4.5611E-08   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      49   3.2318E-08   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      50   2.5244E-08   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      51   1.7630E-08   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      52   1.3220E-08   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      53   8.4951E-09   5.0000E-01   1.0000E-08   2.0000E+01   F
+          1  Hmholtz TEMP      52   8.4951E-09   7.0412E-01   1.0000E-08
+          1  Scalars done  5.0000E-02  2.6816E-03
+             Solving for fluid
+    1 1.00000E-06 4.64125E-01 5.02217E-01 9.24151E-01       1 Divergence
+    2 1.00000E-06 3.51741E-01 5.02217E-01 7.00376E-01       1 Divergence
+    3 1.00000E-06 1.96873E-01 5.02217E-01 3.92009E-01       1 Divergence
+    4 1.00000E-06 9.67435E-02 5.02217E-01 1.92633E-01       1 Divergence
+    5 1.00000E-06 3.16731E-02 5.02217E-01 6.30666E-02       1 Divergence
+    6 1.00000E-06 2.11178E-02 5.02217E-01 4.20492E-02       1 Divergence
+    7 1.00000E-06 6.92916E-03 5.02217E-01 1.37971E-02       1 Divergence
+    8 1.00000E-06 2.54807E-03 5.02217E-01 5.07364E-03       1 Divergence
+    9 1.00000E-06 1.68693E-03 5.02217E-01 3.35897E-03       1 Divergence
+   10 1.00000E-06 6.22292E-04 5.02217E-01 1.23909E-03       1 Divergence
+   11 1.00000E-06 2.29383E-04 5.02217E-01 4.56741E-04       1 Divergence
+   12 1.00000E-06 9.90005E-05 5.02217E-01 1.97127E-04       1 Divergence
+   13 1.00000E-06 5.26868E-05 5.02217E-01 1.04908E-04       1 Divergence
+   14 1.00000E-06 2.13710E-05 5.02217E-01 4.25533E-05       1 Divergence
+   15 1.00000E-06 9.36004E-06 5.02217E-01 1.86374E-05       1 Divergence
+   16 1.00000E-06 4.48363E-06 5.02217E-01 8.92767E-06       1 Divergence
+   17 1.00000E-06 2.10301E-06 5.02217E-01 4.18745E-06       1 Divergence
+   18 1.00000E-06 9.09147E-07 5.02217E-01 1.81027E-06       1 Divergence
+          1  PRES gmres        18   9.0915E-07   5.0222E-01   1.0000E-06   9.6832E-04   1.7475E-03    F
+          1  Helmh3 fluid      45   9.2802E-09   1.6526E+00   1.0000E-08
+             L1/L2 DIV(V)           2.0967E-03   1.0431E-01
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL       2.0967E-03   1.0431E-01
+             WARNING: DIV(V)-QTL too large!
+          1  Fluid done  5.0000E-02  3.7285E-03
+filt amp 0.0000 0.0000 0.0000 0.0100
+filt trn 1.0000 1.0000 1.0000 0.9900
+
+        1  5.0000E-02 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht0.f00001                                                           
+
+        1  5.0000E-02 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    62.1MB/s
+                              io-nodes =     1
+
+Step      2, t= 1.0000000E-01, DT= 5.0000000E-02, C=  0.358 7.7378E-03 7.7377E-03
+             Solving for Hmholtz scalars
+          2  Hmholtz TEMP      43   8.3161E-09   9.9806E-01   1.0000E-08
+          2  Scalars done  1.0000E-01  1.7849E-03
+             Solving for fluid
+          2  PRES gmres        18   6.9661E-07   2.8187E-01   1.0000E-06   8.8063E-04   1.4113E-03    F
+          2  Helmh3 fluid      41   9.4976E-09   4.2899E-01   1.0000E-08
+             L1/L2 DIV(V)           4.4503E-04   1.2908E-01
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL       4.4503E-04   1.2908E-01
+             WARNING: DIV(V)-QTL too large!
+          2  Fluid done  1.0000E-01  3.2209E-03
+
+        2  1.0000E-01 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht0.f00002                                                           
+
+        2  1.0000E-01 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    62.3MB/s
+                              io-nodes =     1
+
+Step      3, t= 1.5000000E-01, DT= 5.0000000E-02, C=  0.418 1.3722E-02 5.9840E-03
+             Solving for Hmholtz scalars
+          3  Hmholtz TEMP      43   7.4572E-09   9.7025E-01   1.0000E-08
+          3  Scalars done  1.5000E-01  1.7759E-03
+             Solving for fluid
+          3  PRES gmres        16   6.9099E-07   1.1747E-01   1.0000E-06   7.8105E-04   1.2385E-03    F
+          3  Helmh3 fluid      38   7.8324E-09   1.1159E-01   1.0000E-08
+             L1/L2 DIV(V)          -3.8383E-04   1.3338E-01
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL      -3.8383E-04   1.3338E-01
+             WARNING: DIV(V)-QTL too large!
+          3  Fluid done  1.5000E-01  2.9294E-03
+
+        3  1.5000E-01 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht0.f00003                                                           
+
+        3  1.5000E-01 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    62.8MB/s
+                              io-nodes =     1
+
+Step      4, t= 2.0000000E-01, DT= 5.0000000E-02, C=  0.422 1.9422E-02 5.7001E-03
+             Solving for Hmholtz scalars
+          4  Hmholtz TEMP      43   6.4995E-09   9.4798E-01   1.0000E-08
+          4  Scalars done  2.0000E-01  1.7732E-03
+             Solving for fluid
+          4  PRES gmres        16   7.5963E-07   1.2293E-01   1.0000E-06   7.8180E-04   1.2399E-03    F
+          4  Helmh3 fluid      39   7.1327E-09   1.2170E-01   1.0000E-08
+             L1/L2 DIV(V)           4.9722E-04   1.3088E-01
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL       4.9722E-04   1.3088E-01
+             WARNING: DIV(V)-QTL too large!
+          4  Fluid done  2.0000E-01  2.9727E-03
+
+        4  2.0000E-01 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht0.f00004                                                           
+
+        4  2.0000E-01 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    63.1MB/s
+                              io-nodes =     1
+
+Step      5, t= 2.5000000E-01, DT= 5.0000000E-02, C=  0.419 2.5148E-02 5.7258E-03
+             Solving for Hmholtz scalars
+          5  Hmholtz TEMP      43   6.0308E-09   9.2953E-01   1.0000E-08
+          5  Scalars done  2.5000E-01  1.7826E-03
+             Solving for fluid
+          5  PRES gmres        14   8.3143E-07   5.7656E-02   1.0000E-06   6.8431E-04   1.0720E-03    F
+          5  Helmh3 fluid      36   9.9009E-09   7.4862E-02   1.0000E-08
+             L1/L2 DIV(V)           1.1093E-03   1.2925E-01
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL       1.1093E-03   1.2925E-01
+             WARNING: DIV(V)-QTL too large!
+          5  Fluid done  2.5000E-01  2.6979E-03
+
+        5  2.5000E-01 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht0.f00005                                                           
+
+        5  2.5000E-01 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    60.6MB/s
+                              io-nodes =     1
+
+Step      6, t= 3.0000000E-01, DT= 5.0000000E-02, C=  0.417 3.0617E-02 5.4694E-03
+             Solving for Hmholtz scalars
+          6  Hmholtz TEMP      43   6.0209E-09   9.1370E-01   1.0000E-08
+          6  Scalars done  3.0000E-01  1.7755E-03
+             Solving for fluid
+          6  PRES gmres        16   4.9007E-07   7.1666E-02   1.0000E-06   7.8324E-04   1.2468E-03    F
+          6  Helmh3 fluid      37   6.0191E-09   5.0818E-02   1.0000E-08
+             L1/L2 DIV(V)           6.5435E-04   1.2930E-01
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL       6.5435E-04   1.2930E-01
+             WARNING: DIV(V)-QTL too large!
+          6  Fluid done  3.0000E-01  2.9039E-03
+
+        6  3.0000E-01 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht0.f00006                                                           
+
+        6  3.0000E-01 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    64.6MB/s
+                              io-nodes =     1
+
+Step      7, t= 3.5000000E-01, DT= 5.0000000E-02, C=  0.416 3.6261E-02 5.6435E-03
+             Solving for Hmholtz scalars
+          7  Hmholtz TEMP      43   6.2412E-09   8.9972E-01   1.0000E-08
+          7  Scalars done  3.5000E-01  1.7811E-03
+             Solving for fluid
+          7  PRES gmres        14   4.6786E-07   4.3396E-02   1.0000E-06   6.8361E-04   1.0717E-03    F
+          7  Helmh3 fluid      36   8.6092E-09   5.2536E-02   1.0000E-08
+             L1/L2 DIV(V)           1.7665E-04   1.2958E-01
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL       1.7665E-04   1.2958E-01
+             WARNING: DIV(V)-QTL too large!
+          7  Fluid done  3.5000E-01  2.7092E-03
+
+        7  3.5000E-01 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht0.f00007                                                           
+
+        7  3.5000E-01 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    60.2MB/s
+                              io-nodes =     1
+
+Step      8, t= 4.0000000E-01, DT= 5.0000000E-02, C=  0.415 4.1742E-02 5.4816E-03
+             Solving for Hmholtz scalars
+          8  Hmholtz TEMP      43   6.2866E-09   8.8714E-01   1.0000E-08
+          8  Scalars done  4.0000E-01  1.7736E-03
+             Solving for fluid
+          8  PRES gmres        15   6.0522E-07   3.2856E-02   1.0000E-06   7.3363E-04   1.1616E-03    F
+          8  Helmh3 fluid      35   8.8694E-09   3.0649E-02   1.0000E-08
+             L1/L2 DIV(V)           3.2621E-04   1.2930E-01
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL       3.2621E-04   1.2930E-01
+             WARNING: DIV(V)-QTL too large!
+          8  Fluid done  4.0000E-01  2.7491E-03
+
+        8  4.0000E-01 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht0.f00008                                                           
+
+        8  4.0000E-01 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    62.7MB/s
+                              io-nodes =     1
+
+Step      9, t= 4.5000000E-01, DT= 5.0000000E-02, C=  0.415 4.7241E-02 5.4984E-03
+             Solving for Hmholtz scalars
+          9  Hmholtz TEMP      43   6.2297E-09   8.7567E-01   1.0000E-08
+          9  Scalars done  4.5000E-01  1.7815E-03
+             Solving for fluid
+          9  PRES gmres        14   6.4427E-07   2.8296E-02   1.0000E-06   6.8537E-04   1.0738E-03    F
+          9  Helmh3 fluid      35   8.3795E-09   3.9671E-02   1.0000E-08
+             L1/L2 DIV(V)           6.3085E-04   1.2903E-01
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL       6.3085E-04   1.2903E-01
+             WARNING: DIV(V)-QTL too large!
+          9  Fluid done  4.5000E-01  2.6619E-03
+
+        9  4.5000E-01 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht0.f00009                                                           
+
+        9  4.5000E-01 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    60.5MB/s
+                              io-nodes =     1
+
+Step     10, t= 5.0000000E-01, DT= 5.0000000E-02, C=  0.415 5.2673E-02 5.4325E-03
+             Solving for Hmholtz scalars
+         10  Hmholtz TEMP      43   6.0597E-09   8.6509E-01   1.0000E-08
+         10  Scalars done  5.0000E-01  1.7742E-03
+             Solving for fluid
+         10  PRES gmres        14   8.8407E-07   1.6398E-02   1.0000E-06   6.8970E-04   1.0794E-03    F
+         10  Helmh3 fluid      34   6.5039E-09   1.0788E-02   1.0000E-08
+             L1/L2 DIV(V)           6.0125E-04   1.2912E-01
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL       6.0125E-04   1.2912E-01
+             WARNING: DIV(V)-QTL too large!
+         10  Fluid done  5.0000E-01  2.6330E-03
+       10 5.00000E-01 1.04909E+00 4.95624E-01 tmax
+
+       10  5.0000E-01 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht0.f00010                                                           
+
+       10  5.0000E-01 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    64.4MB/s
+                              io-nodes =     1
+
+ Final time step =    5.5511151231257827E-017
+             Solving for Hmholtz scalars
+         11  Hmholtz TEMP      43   5.9159E-09   8.5525E-01   1.0000E-08
+         11  Scalars done  5.5000E-01  1.7498E-03
+             Solving for fluid
+         11  PRES gmres        14   5.7668E-07   1.9098E-02   1.0000E-06   6.8285E-04   1.0735E-03    F
+         11  Helmh3 fluid      35   7.7137E-09   2.0760E-02   1.0000E-08
+             L1/L2 DIV(V)           4.1574E-04   1.2930E-01
+             L1/L2 QTL              0.0000E+00   0.0000E+00
+             L1/L2 DIV(V)-QTL       4.1574E-04   1.2930E-01
+             WARNING: DIV(V)-QTL too large!
+         11  Fluid done  5.5000E-01  2.6452E-03
+  [MONITOR] Summary of registered timers
+  
+Module name        Timer name :          Count       Min time       Max time      Max/count
+[FRAME     ]  FRM_TOT         : 0.10000000E+01 0.64627689E-01 0.64627689E-01 0.64627689E-01
+[CHKPOINT  ]    CHP_TOT       : 0.20000000E+01 0.56741294E-04 0.56741294E-04 0.28370647E-04
+[CHKPOINT  ]      CHP_INI     : 0.20000000E+01 0.56741294E-04 0.56741294E-04 0.28370647E-04
+[MSTEP     ]      CHP_READ    : 0.00000000E+00 0.00000000E+00 0.00000000E+00 0.00000000E+00
+[MSTEP     ]      CHP_WRITE   : 0.00000000E+00 0.00000000E+00 0.00000000E+00 0.00000000E+00
+  
+ for Harry
+          32
+          32
+          64
+
+       11  5.5000E-01 Write checkpoint
+       FILE:/scratch/nobis/Nek5000/run/ImplimentingCLio/2_conj_ht_IBM/conj_ht0.f00011                                                           
+
+       11  5.5000E-01 done :: Write checkpoint
+                              file size =     238.E-04MB
+                              avg data-throughput =    62.9MB/s
+                              io-nodes =     1
+
+
+end of time-step loop
+
+runtime statistics:
+ init time   9.9062952212989330E-003  0.15606162148533440     
+ prep time          13   4.4213011860847473E-003   6.9652217782880110E-002
+ pres time          11   1.5625339001417160E-002  0.24615819399126029     
+ crsl time         169   7.6347123831510544E-004   1.2027559924995705E-002
+ crsl min    7.6347123831510544E-004
+ crsl max    7.6347123831510544E-004
+ crsl avg    7.6347123831510544E-004
+ hmhz time          22   3.3592076040804386E-002  0.52920226369946466     
+ eslv time           0   0.0000000000000000        0.0000000000000000     
+ proj time           0   0.0000000000000000        0.0000000000000000     
+ usvp time          12   1.3903467915952206E-003   2.1903221121127824E-002
+ usfq time           0   1.6310904175043106E-003   2.5695843870836770E-002
+ usbc time          52   1.3412735424935818E-003   2.1130131822326238E-002
+ usbc min    1.3412735424935818E-003
+ usbc max    1.3412735424935818E-003
+ usb  avg    1.3412735424935818E-003
+ mltd time          22   2.1960446611046791E-004   3.4596010214731918E-003
+ cdtp time          22   2.2948579862713814E-004   3.6152693859361996E-003
+ axhm time        1170   2.3770472034811974E-002  0.37447484920988805     
+ advc time          33   1.2542945332825184E-003   1.9759883418717032E-002
+ mxmf time   0.0000000000000000        0.0000000000000000     
+ adc3 time   0.0000000000000000        0.0000000000000000     
+ col2 time   0.0000000000000000        0.0000000000000000     
+ col3 time   0.0000000000000000        0.0000000000000000     
+ a2s2 time   0.0000000000000000        0.0000000000000000     
+ add2 time   0.0000000000000000        0.0000000000000000     
+ invc time   0.0000000000000000        0.0000000000000000     
+ tgop time        3166   7.4975751340389252E-004   1.1811516883834746E-002
+ dadd time           0   1.8940088339149952E-003   2.9837803449750636E-002
+ vdss time         466   2.3691188544034958E-003   3.7322583433083659E-002
+ vdss min    2.3691188544034958E-003
+ vdss max    2.3691188544034958E-003
+ vdss avg    2.3691188544034958E-003
+ dsum time         900   3.7601608783006668E-003   5.9236757092766774E-002
+ dsum min    3.7601608783006668E-003
+ dsum max    3.7601608783006668E-003
+ dsum avg    3.7601608783006668E-003
+ ddsl time           0   0.0000000000000000        0.0000000000000000     
+
+#  nid       tusbc       tdadd       tcrsl       tvdss       tdsum        tgop    qqq    F
+           0  1.3413E-03  1.8940E-03  7.6347E-04  2.3691E-03  3.7602E-03  7.4976E-04 qqq
+  
+run successful: dying ...
+  
+  
+total elapsed time             :   7.36727E-02 sec
+total solver time w/o IO       :   5.90554E-02 sec
+time/timestep                  :   5.36867E-03 sec
+avg throughput per timestep    :   6.05364E+04 gridpts/CPUs
+total max memory usage         :   2.00335E-02 GB
+
+0.09user 0.00system 0:00.29elapsed 35%CPU (0avgtext+0avgdata 19564maxresident)k
+0inputs+904outputs (0major+2275minor)pagefaults 0swaps

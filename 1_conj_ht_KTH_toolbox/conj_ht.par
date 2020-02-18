@@ -1,0 +1,67 @@
+#
+# nek parameter file
+#
+[GENERAL] 
+#startFrom = restart.fld 
+stopAt = endTime
+endTime = 30
+#numSteps = 3000
+
+dt = 5.000000E-02
+timeStepper = bdf2
+variableDt = no
+targetCFL = 0.5
+
+writeControl = runTime
+writeInterval = 0.5
+
+dealiasing = yes
+filtering = explicit
+filterWeight = 0.100000E-01
+filterCutoffRatio = 0.84
+
+userParam01 = 5 # use in .usr uparam(01)
+
+[PROBLEMTYPE]
+equation = incompNS
+#stressFormulation = yes
+#lowMachNumber = no 
+#dp0dt = yes
+variableProperties = yes
+
+[MESH]
+writeToFieldFile = yes
+
+[PRESSURE]
+preconditioner = semg_xxt
+residualTol = 1.000000E-06
+residualProj = no
+writeToFieldFile = yes
+
+[VELOCITY]
+residualTol = 1.000000E-08
+residualProj = no
+density = 1.0
+viscosity = 0.5
+advection = yes
+writeToFieldFile = yes
+
+[TEMPERATURE]
+ConjugateHeatTransfer = yes
+rhoCp = 1
+conductivity = 0.5
+
+
+#
+[_RUNPAR]               # Runtime parameter section for rprm module
+PARFWRITE            = no                     # Do we write runtime parameter file
+PARFNAME             = outparfile             # Runtime parameter file name for output (without .par)
+#
+[_MONITOR]              # Runtime parameter section for monitor module
+LOGLEVEL             = 4                      # Logging threshold for toolboxes
+WALLTIME             = 02:05                  # Simulation wall time
+#
+[_CHKPOINT]             # Runtime paramere section for checkpoint module
+READCHKPT            = no                     # Restat from checkpoint
+CHKPFNUMBER          = 2                      # Restart file number
+CHKPINTERVAL         = 25                     # Checkpiont saving frequency (number of time steps)
